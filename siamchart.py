@@ -57,7 +57,7 @@ def parse_symbols(myfilename="data.csv"):
     all_sym_file.close
 
 def read_historical_csv_update_data_folder(source_data_dir):
-    csv_dir = "../toroapp/static/data/"
+    csv_dir = "data/"
     # all files .csv in ./data1970to2018 folder
     all_files = os.listdir(source_data_dir)
     all_files = sorted(all_files)
@@ -106,7 +106,7 @@ if __name__ == "__main__":
     # FOLDER PROCESSING #
     # Run only once to initialize the data from 1970 to 2018
     #read_historical_csv_update_data_folder("./data1970to2018/")
-    read_historical_csv_update_data_folder("./data2019/")
+    read_historical_csv_update_data_folder("toprocess/")
 
     #unzipfile()            # this run daily
     #parse_symbols()        # this get all symbols in above file
