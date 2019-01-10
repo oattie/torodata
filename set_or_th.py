@@ -87,7 +87,7 @@ while i<36:
             ohlcvs_ok.append(0)    # Low
             ohlcvs_ok.append(0)    # Close
             ohlcvs_ok.append(0)    # Vol
-            ohlcvs_ok.append(0)    # Val
+            #ohlcvs_ok.append(0)    # Val
         print(ohlcvs_ok)
 
         # Get Change, and % Change
@@ -104,6 +104,6 @@ while i<36:
             chgs_ok.append(0)   # % Change
         print(chgs_ok)
         j = j+1 # loop all lines in the tables
-        f.write("%s,%s,%.2f,%.2f,%.2f,%.2f,%d,%d\n" % (symbol_ok,today,ohlcvs_ok[0],ohlcvs_ok[1],ohlcvs_ok[2],ohlcvs_ok[3],ohlcvs_ok[4],ohlcvs_ok[5]))
+        f.write("%s,%s,%.2f,%.2f,%.2f,%.2f,%d\n" % (symbol_ok,today,ohlcvs_ok[0],ohlcvs_ok[1],ohlcvs_ok[2],ohlcvs_ok[3],ohlcvs_ok[4]))
     i = i+1     # loop all tables
 f.close()
