@@ -71,23 +71,26 @@ while i<36:
         ohlcvs = tree.xpath('//*[@id="maincontent"]/div/div[2]/div/div/div/div[2]/table/tbody/tr['+str(j)+']/td/text()')
         ohlcvs_ok = []
         for ohlcv in ohlcvs:
-            ohlcv = ohlcv.strip()
+            ohlcv = ohlcv.strip()           #Main Row
             if ohlcv =='':
                 continue
-            ohlcv = ohlcv.replace('+',"0")
-            ohlcv = ohlcv.replace('-',"0")
-            ohlcv = ohlcv.replace(',',"")
-            ohlcv = float(ohlcv)
-            ohlcv = round(ohlcv, 2)
-            ohlcvs_ok.append(ohlcv)
+            ohlcv = ohlcv.replace('+',"0")  
+            ohlcv = ohlcv.replace('-',"0")  
+            ohlcv = ohlcv.replace(',',"")   
+            ohlcv = float(ohlcv)            
+            ohlcv = round(ohlcv, 2)             
+            ohlcvs_ok.append(ohlcv)         # remove chars, & convert to float
         # This handle '-' non-change case
         if ohlcvs == []:
-            ohlcvs_ok.append(0)    # Open
-            ohlcvs_ok.append(0)    # High
-            ohlcvs_ok.append(0)    # Low
-            ohlcvs_ok.append(0)    # Close
-            ohlcvs_ok.append(0)    # Vol
-            #ohlcvs_ok.append(0)    # Val
+            ohlcvs_ok.append(0)    # Open  0
+            ohlcvs_ok.append(0)    # High  1
+            ohlcvs_ok.append(0)    # Low   2
+            ohlcvs_ok.append(0)    # Close 3
+            ohlcvs_ok.append(0)    # Bid   4
+            ohlcvs_ok.append(0)    # Offer 5
+            ohlcvs_ok.append(0)    # Vol   6
+            ohlcvs_ok.append(0)    # Val   7
+
         print(ohlcvs_ok)
 
         # Get Change, and % Change
@@ -104,6 +107,6 @@ while i<36:
             chgs_ok.append(0)   # % Change
         print(chgs_ok)
         j = j+1 # loop all lines in the tables
-        f.write("%s,%s,%.2f,%.2f,%.2f,%.2f,%d\n" % (symbol_ok,today,ohlcvs_ok[0],ohlcvs_ok[1],ohlcvs_ok[2],ohlcvs_ok[3],ohlcvs_ok[4]))
+        f.write("%s,%s,%.2f,%.2f,%.2f,%.2f,%d\n" % (symbol_ok,today,ohlcvs_ok[0],ohlcvs_ok[1],ohlcvs_ok[2],ohlcvs_ok[3],int(ohlcvs_ok[6])))
     i = i+1     # loop all tables
 f.close()

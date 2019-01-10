@@ -99,7 +99,7 @@ def read_historical_csv_update_data_folder(source_data_dir):
                             headers=['Date','Open','High','Low','Close','Adj Close', 'Volume']
                             writer = csv.DictWriter(csvfile, delimiter=',', lineterminator='\n',fieldnames=headers)
                             if not file_exists:
-                                writer.writeheader()
+                                writer.writeheader()    
                             writer.writerow({'Date': date, 'Open': open_price, 'High': high_price, 'Low': low_price, 'Close': close_price, 'Adj Close': adj_close, 'Volume': volume})
                     num_row = num_row+1
 
@@ -107,10 +107,26 @@ def read_historical_csv_update_data_folder(source_data_dir):
 if __name__ == "__main__":
     # FOLDER PROCESSING #
     # Run only once to initialize the data from 1970 to 2018
-    read_historical_csv_update_data_folder("data1970to2018/")
-    read_historical_csv_update_data_folder("data2019/")
-    read_historical_csv_update_data_folder("Setsmart_csv/")
-    read_historical_csv_update_data_folder("set_or_th_csv/")
+    # Process write csv file
+    #today = "2019-10-10"
+    file_exists = os.path.isfile("data/set.csv")
+    if not file_exists:
+        read_historical_csv_update_data_folder("data1970to2018/")
+        read_historical_csv_update_data_folder("data2019/")
+        read_historical_csv_update_data_folder("Setsmart_csv/")
+        read_historical_csv_update_data_folder("set_or_th_csv/")
+    else:
+        # Check if the file already has the data for today
+        # Before writing!
+        with open("set.csv", 'r') as checkfile:
+            last_line = checkfile.readlines()[-1]
+            filedate = last_line.split(",")
+            if filedate[0] == today:
+                exit()
+            else:
+                # EVERYDAY - UPDATE HERE
+                #read_historical_csv_update_data_folder("Setsmart_csv/")
+                read_historical_csv_update_data_folder("set_or_th_csv/")
 
     #unzipfile()            # this run daily
     #parse_symbols()        # this get all symbols in above file
