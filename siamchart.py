@@ -2,12 +2,14 @@
 # This script will download data from SiamChart.com
 # Then, update all CSV files
 
-from selenium import webdriver
+#from selenium import webdriver
 from datetime import date
 import os
 import time
 import subprocess
 import csv
+import datetime
+today = datetime.datetime.today().strftime('%Y-%m-%d')
 
 def download_siamchart():
     # Uncomment 3 lines below for LINUX
@@ -67,7 +69,7 @@ def read_historical_csv_update_data_folder(source_data_dir):
         parse_symbols(source_data_dir+myfile)
         symbol_file = open("today_trade_symbol.txt","r")
         symbols = [x.strip('\n') for x in symbol_file.readlines()]
-
+        
         with open(source_data_dir+myfile) as csvfile:
             readCSV = csv.reader(csvfile, delimiter=',')
             num_row = 0
@@ -97,7 +99,16 @@ def read_historical_csv_update_data_folder(source_data_dir):
                             headers=['Date','Open','High','Low','Close','Adj Close', 'Volume']
                             writer = csv.DictWriter(csvfile, delimiter=',', lineterminator='\n',fieldnames=headers)
                             if not file_exists:
-                                writer.writeheader()
+                                writer.writeheader()    
+                            
+                            # if data not update, will write the file in CSV
+                            # Check if the file already has the data for today
+                            # Before writing!
+                            with open(csv_dir + symbol.lower() + ".csv", 'r') as checkfile:
+                                last_line = checkfile.readlines()[-1]
+                                filedate = last_line.split(",")
+                                if filedate[0] == today:
+                                    continue
                             writer.writerow({'Date': date, 'Open': open_price, 'High': high_price, 'Low': low_price, 'Close': close_price, 'Adj Close': adj_close, 'Volume': volume})
                     num_row = num_row+1
 
@@ -106,7 +117,7 @@ if __name__ == "__main__":
     # FOLDER PROCESSING #
     # Run only once to initialize the data from 1970 to 2018
     #read_historical_csv_update_data_folder("./data1970to2018/")
-    read_historical_csv_update_data_folder("toprocess/")
+    read_historical_csv_update_data_folder("set_or_th_csv/")
 
     #unzipfile()            # this run daily
     #parse_symbols()        # this get all symbols in above file

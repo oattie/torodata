@@ -1,0 +1,162 @@
+var tid,cid;
+var topic;
+var level1, level2, level3, level4;
+var level = 0;
+
+function readmenuvar() {	
+	topic = eval("topic_"+orderMenu)
+	for(var i=0;i<topic[4].length;i++) {
+		var _lvl1 = topic[4][i];
+		if (menu_id == _lvl1[1]) {
+			level = 1;	
+			level1 = _lvl1;
+			break;
+		} else {
+			for (var j=0; j<_lvl1[4].length; j++) {
+				var _lvl2 = _lvl1[4][j];
+				if (menu_id == _lvl2[1]) {
+					level = 2;
+					level2 = _lvl2;
+					level1 = _lvl1;
+					break;
+				} else {
+					for (var k=0; k<_lvl2[4].length; k++) {
+						var _lvl3 = _lvl2[4][k];
+						if (menu_id == _lvl3[1]) {
+							level = 3;
+							level3 = _lvl3;
+							level2 = _lvl2;
+							level1 = _lvl1;
+							break;
+						} else {
+							for (var l=0; l<_lvl3[4].length; l++) {
+								var _lvl4 = _lvl3[4][l];
+								if (menu_id == _lvl4[1]) {
+									level = 4;
+									level4 = _lvl4;
+									level3 = _lvl3;
+									level2 = _lvl2;
+									level1 = _lvl1;
+									break;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+function leftnav(leftMenuId) {	  
+	//alert(' level : ' + level + ',\n level1 : ' + level1 + ',\n level2 : ' + level2 + ',\n level3 : ' + level3 + ',\n level4 : ' + level4);
+	//alert(topic);
+	var leftMenu = '';
+	leftMenu += '<div class="panel set-color-yellow-square">';
+	leftMenu += '<h3 class="label-sidebar-heading">';
+	leftMenu += topic[0];
+	leftMenu += '</h3></div>';
+	for (var i=0; i<topic[4].length; i++) {
+		var _lvl1 = topic[4][i];
+		leftMenu += '<div class="menu-panel">';	
+		leftMenu += '<div class="" role="tab" id="heading'+ i +'">';		
+		if (_lvl1[4].length > 0) { 
+			leftMenu += '<a class="';
+            if (level > 0 && level1 != null && level1[1] != _lvl1[1]){
+				leftMenu += 'collapsed ';
+			}
+			leftMenu += ' set-collapse title-collaps"';
+			leftMenu += ' data-toggle="collapse" data-parent="#accordion"';
+			leftMenu += ' href="#collapse' + i + '" aria-expanded="true"';
+			leftMenu += ' aria-controls="collapse' + i + '"> ';
+			leftMenu += _lvl1[0];
+			leftMenu += '</a>';
+		} else {
+			leftMenu += '<a class="collapsed set-collapse title-nocollaps';
+			if (menu_id == _lvl1[1]) {
+				leftMenu += ' active';
+			} 
+			leftMenu += '"';
+			leftMenu += ' href="' + _lvl1[2]+ '" target="'+ _lvl1[3] + '">' + _lvl1[0] +'</a>';
+		}
+		leftMenu += '</div>';
+		if (_lvl1[4].length > 0) {
+			leftMenu += '<div id="collapse' + i + '"';
+			leftMenu += ' class="panel-collapse collapse';
+			if (level > 0 && level1 != null && level1[1] == _lvl1[1]){
+				leftMenu += ' in';
+			}
+            leftMenu += '"';
+			leftMenu += ' role="tabpanel" aria-labelledby="heading' + i + '">';			
+			leftMenu += '<div class="panel-body">';
+			leftMenu += '<ul class="set-hide-submenu">';
+			for (var j=0; j<_lvl1[4].length; j++){
+				var _lvl2 = _lvl1[4][j];
+				leftMenu += '<li>';
+				leftMenu += '<a href="' + _lvl2[2] +'" target="' + _lvl2[3] + '"';
+				if (menu_id == _lvl2[1]) {
+					leftMenu += ' class="active"';
+				}
+				leftMenu += '>';
+				leftMenu += _lvl2[0];
+				leftMenu += '</a>';
+				if (_lvl2[4].length > 0) {
+					leftMenu += '<div class="panel-submenu">';
+					leftMenu += '<ul class="set-hide-submenu2">';
+					for (var k=0; k<_lvl2[4].length; k++) {
+						var _lvl3 = _lvl2[4][k];
+						leftMenu += '<li>';
+						leftMenu += '<a href="' + _lvl3[2] +'" target="' + _lvl3[3] + '"';
+						if (menu_id == _lvl3[1]) {
+							leftMenu += ' class="active"';
+						}
+						leftMenu += '>';
+						leftMenu += _lvl3[0];
+						leftMenu += '</a>';
+						leftMenu += '</li>';
+					}
+					leftMenu += '</ul>';
+					leftMenu += '</div>';
+				}
+				leftMenu += '</li>';
+			}
+			leftMenu += '</ul>';
+			leftMenu += '</div>';
+			leftMenu += '</div>';
+		}
+		leftMenu += '</div>';				
+	}
+	document.getElementById(leftMenuId).innerHTML = leftMenu;
+}
+
+function generateBreadCrumbs(breadcrumbId) {	
+	var breadcrumb = '';
+	breadcrumb += '<ol class="breadcrumb-set">';
+	breadcrumb += '  <li><a href="' + home[1] + '">' + home[0] + '</a></li>';
+	if (topic && topic != null) {
+		breadcrumb += '  <li><a href="' + topic[2] + '">' + topic[0] + '</a></li>';
+		if (level1 && level1 != null) {
+			if (level == 1) {
+				breadcrumb += '  <li class="active">' + level1[0] + '</li>';
+			} else {
+				breadcrumb += '  <li><a href="' + level1[2] + '">' + level1[0] + '</a></li>';
+			}
+		}
+		if (level2 && level2 != null) {
+			if (level == 2) {
+				breadcrumb += '  <li class="active">' + level2[0] + '</li>';
+			} else {
+				breadcrumb += '  <li><a href="' + level2[2] + '">' + level2[0] + '</a></li>';
+			}
+		}
+		if (level3 && level3 != null) {
+			if (level == 3) {
+				breadcrumb += '  <li class="active">' + level3[0] + '</li>';
+			} else {
+				breadcrumb += '  <li><a href="' + level3[2] + '">' + level3[0] + '</a></li>';
+			}
+		}
+	}
+	breadcrumb += '</ol>';
+	document.getElementById(breadcrumbId).innerHTML = breadcrumb;
+}

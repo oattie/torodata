@@ -1,0 +1,711 @@
+// JavaScript Document
+var cURL = 'https://www.set.or.th';
+var uURL = 'https://portal.set.or.th';
+var mURL = 'https://marketdata.set.or.th';
+
+var home = ['หน้าแรก', cURL +'/th/index.html'];
+
+// About SET
+var topic_about=['เกี่ยวกับตลท.','100000',cURL+'/th/about/index.html','_top',[
+					['พันธกิจและวิสัยทัศน์','101000',cURL+'/th/about/vision/vision_p1.html','_top', []],
+					['ภาพรวม','102000',cURL+'/th/about/overview/history_p1.html','_top', [
+						['ประวัติและบทบาท','102001',cURL+'/th/about/overview/history_p1.html','_top', []],
+						['คณะกรรมการ','102002',cURL+'/th/about/overview/board_p1.html','_top', []],
+						['คณะผู้บริหาร/โครงสร้างองค์กร','102003',cURL+'/th/about/overview/organization_p1.html','_top', []],
+						['ตราสัญลักษณ์','102010',cURL+'/th/about/overview/setlogo_p1.html','_top', []],
+						['กลุ่มตลาดหลักทรัพย์ฯ','102004',cURL+'/th/about/overview/setgroup_p1.html','_top', []],
+						['โครงสร้างการถือหุ้น','102011',cURL+'/th/about/overview/share_p1.html','_top', []],
+						['การกำกับดูแลกิจการที่ดี','102005',cURL+'/th/about/overview/setcg_p1.html','_top', []],
+						['การแจ้งเบาะแส','102006',cURL+'/th/about/overview/whistleblowing_p1.html','_top', []],
+/*						['เกี่ยวกับตลาดหลักทรัพย์เอ็ม เอ ไอ','102008',cURL+'/th/about/overview/about_mai_vision.html','_top', []],*/
+						['เกี่ยวกับตลาดสัญญาซื้อขายล่วงหน้า ','102009','http://www.tfex.co.th/th/about/glance.html','_blank', []]
+					]],
+					['รายงานผลการดำเนินงาน','103000',cURL+'/th/about/annual/annual_p1.html','_top', [
+						['รายงานประจำปี','103001',cURL+'/th/about/annual/annual_p1.html','_top', []],
+						['รายงานความยั่งยืน','103003',cURL+'/th/about/annual/sd_report_p1.html','_top', []],
+						['งบการเงินประจำปีและ MD&A','103002',cURL+'/th/about/annual/financial_statement_p1.html','_top', []]
+					]],
+					['วันหยุด ','104000',cURL+'/set/holiday.do?language=th&country=TH','_top', []],
+					['ร่วมงานกับเรา','105000',cURL+'/th/about/jobs/jobs_p1.html','_top', [
+						['สมัครงาน','105001',cURL+'/th/about/jobs/jobs_p1.html','_top', []],
+						['การฝึกงาน','105002',cURL+'/th/about/jobs/internship_p1.html','_top', []],
+						['ทุนการศึกษา','105003',cURL+'/th/about/jobs/scholarship_p1.html','_top', []]
+					]],
+					['แผนที่ ','106000',cURL+'/th/about/map/map_p1.html','_top', []],
+					['SET Newsletter','109000',cURL+'/th/about/newsletter/newsletter_p1.html','_top', []],
+					['SET Infographic','110000',cURL+'/set/setInfographic.do?language=th&country=TH','_top', []], 
+					['การพัฒนาตลท.เพื่อความยั่งยืน','108000',cURL+'/th/about/sse/guideline_p1.html','_top', []]
+/*					['ความยั่งยืน','19010000',cURL+'/th/sustainability/sustainability.html','_top', []] */
+				]];
+// Rules & Regulations
+var topic_rules = ['กฎเกณฑ์/การกำกับ' ,'200000',cURL+'/th/regulations/index.html','_top', [
+					['หลักเกณฑ์และการกำกับ','201000',cURL+'/th/regulations/supervision/listed_p1.html','_top', [
+						['การกำกับบริษัทจดทะเบียน','201001',cURL+'/th/regulations/supervision/listed_p1.html','_top', []],
+						['การกำกับการซื้อขาย','201002',cURL+'/th/regulations/supervision/surveillance_p1.html','_top', []],
+						['การกำกับบริษัทสมาชิก','201003',cURL+'/th/regulations/supervision/member_p1.html','_top', []],
+						['วินัยและคดี','201004',cURL+'/th/regulations/supervision/enforcement_p1.html','_top', []],
+						['นโยบายกำกับตลาด','201005',cURL+'/th/regulations/supervision/market_policy_p1.html','_top', []]
+					]],
+					['กฎเกณฑ์ที่เกี่ยวข้อง','202000',cURL+'/set/notification.do?language=th&country=TH','_top', [
+						['กฎเกณฑ์แยกตามประมวล','202001',cURL+'/set/notification.do?language=th&country=TH','_top', []],
+						['หนังสือเวียน','202003',cURL+'/th/regulations/circulated_memo/circulated_memo_p1.html','_top', []],
+						['ค้นหากฎเกณฑ์','202004',cURL+'/set/searchregulation.do?language=th&country=TH','_top', []],
+						['กฎเกณฑ์ใหม่','202005',cURL+'/th/regulations/rule_amendments/rule_amendments_p1.html','_top', []],
+						['Simplified Regulations','202006',cURL+'/th/regulations/simplified_regulations/simplified_regulations_p1.html','_top', []],
+						['โครงการ Smart Disclosure Program','202007',cURL+'/th/regulations/smart_disclosure_program/detail_p1.html','_top', []]
+					]],
+					['การบังคับใช้','203000',cURL+'/th/regulations/enforcement/enforcement_p1.html','_top', [
+						['กระบวนการพิจารณา','203001',cURL+'/th/regulations/enforcement/enforcement_p1.html','_top', []],
+						['กระบวนการพิจารณาความผิดทางวินัย','203002',cURL+'/th/regulations/enforcement/disprocess_p1.html','_top', []],
+						['กระบวนการพิจารณาอุทธรณ์','203003',cURL+'/th/regulations/enforcement/aplprocess_p1.html','_top', []],
+						['การดำเนินการทางวินัย','203004',cURL+'/th/regulations/enforcement/penalties_p1.html','_top', []]
+					]],
+					['ภาษี','204000',cURL+'/th/regulations/tax/tax_p1.html','_top', [
+						['ตราสารทุน','204001',cURL+'/th/regulations/tax/tax_p1.html','_top', []],
+						['ตราสารหนี้','204002',cURL+'/th/regulations/tax/tax_bond_p1.html','_top', []]
+					]],
+					['การคุ้มครองผู้ลงทุน','205000',cURL+'/th/regulations/protection/protection_p1.html','_top', []],
+					['Market Consultation','206000', cURL+'/th/regulations/consult/market_consultation_p1.html','_top', []],
+					['ค่าสถิติงานกำกับ','208000',cURL+'/set/regulatorystatistics.do?language=th&country=TH','_top', []]
+				 ]];
+
+//Products / Services
+var topic_products = ['สินค้า/บริการ','300000',cURL+'/th/products/index.html','_top', [
+						['ดัชนี','301000',cURL+'/th/products/index/setindex_p1.html','_top', [
+							['ดัชนีตลาดหลักทรัพย์','301001',cURL+'/th/products/index/setindex_p1.html','_top', []],
+							['ดัชนี mai','301002',cURL+'/th/products/index/maiindex_p1.html','_top', []],
+							['ดัชนี FTSE SET','301003',cURL+'/th/products/index/ftse_set_p1.html','_top', []],
+							['ดัชนี FTSE/ASEAN','301005',cURL+'/th/products/index/ftse_asean_p1.html','_top', []],
+							['ดัชนีผลตอบแทนรวม (TRI)','301004',cURL+'/th/products/index/tri_p1.html','_top', []]
+						]],
+						['ตราสารทุน','302000',cURL+'/th/products/equities/equities_p1.html','_top', []],
+						['ตราสารหนี้','303000',cURL+'/th/products/bonds/bonds_p1.html','_top', []],
+						['ตราสารอนุพันธ์','304000','http://www.tfex.co.th/th/products/products.html','_blank', []],
+						['อีทีเอฟ (ETF)','305000', cURL + '/set/etfstatistics.do?language=th&country=TH','_top', []],
+						['กองทุนรวม','316000','http://www.thaimutualfund.com','_blank', [
+							['Thai Mutual Fund','316001', 'http://www.thaimutualfund.com','_blank', []],
+							['CG Fund','316002',  cURL+'/th/products/fund/cg_fund.html','_top', []]
+						]],  
+						['ใบสำคัญแสดงสิทธิอนุพันธ์ (DW)','306000',cURL+'/th/products/dw/dw_p1.html','_top', [
+							['มือใหม่','306001', cURL+'/th/products/dw/dw_p1.html','_top', []],
+							['มือโปร','306002', cURL+'/set/searchdw.do?language=th&country=TH','_top', []],
+							['ผู้ออก','306005',  cURL+'/th/products/dw/dw_list.html','_top', []]
+						]],
+						['ตราสารแสดงสิทธิการฝากหลักทรัพย์ต่างประเทศ (DR)','311001',cURL+'/set/drinformation.do?language=th&country=TH','_top', [
+							['ราคา DR','311000', mURL+'/mkt/stocklistbytype.do?type=X&market=A&language=th&country=TH','_blank', []],
+							['ข้อมูล DR','311001', cURL+'/set/drinformation.do?language=th&country=TH','_top', []],
+							['ข้อมูลผู้ออก DR','311002',  cURL+'/th/products/dr/dr_issuer.html','_top', []],
+							['ความรู้ผู้ลงทุน','311003', cURL+'/th/products/dr/dr_knowledge.html','_top', []],
+							['ถาม-ตอบ','311004',  cURL+'/th/products/dr/dr_faq.html','_top', []]
+						]], 
+						['บริการข้อมูลหลักทรัพย์','307000',cURL+'/th/products/info/details_p1.html','_top', [
+							['ประเภทของข้อมูล','307001',cURL+'/th/products/info/details_p1.html','_top', []],
+							['ติดต่อรับบริการ','307002',cURL+'/th/products/info/subscription_p1.html','_top', []],
+							['รายชื่อผู้ขายข้อมูลรับอนุญาต','307003',cURL+'/th/products/info/data_vendors_p1.html','_top', []],
+							['นโยบายการใช้ข้อมูลตลาดหลักทรัพย์','307004',cURL+'/th/products/info/policy_p1.html','_top', []]
+						]],
+						['บริการการเข้าจดทะเบียน','308000',cURL+'/th/products/listing2/listing_set_p1.html','_top', [
+							['การเข้าจดทะเบียนตราสารทุน','308001',cURL+'/th/products/listing2/listing_set_p1.html','_top', []],
+							['การเข้าจดทะเบียนตราสารหนี้','308002',cURL+'/th/products/listing/bond_listing_p1.html','_top', []],
+							['แบบฟอร์ม แบบคำขอ และแบบรายงาน ','308003',cURL+'/th/products/listing2/download_p1.html','_top', []]
+						]],
+						['บริการสำหรับผู้ลงทุนสถาบัน','313000',cURL+'/th/products/institution/institution_p1.html','_top', [
+							['วิธีการซื้อขายสำหรับผู้ลงทุนสถาบัน ','313001',cURL+'/th/products/institution/institution_p1.html','_top', []],
+							['Direct Market Access (DMA)','313002',cURL+'/th/products/institution/dma.html','_top', []],
+							['Program Trading','313003',cURL+'/th/products/institution/program_trading.html','_top', []]
+						]],
+						['บริการ Co-location','318000',cURL+'/th/products/colocation/colocation_p1.html','_top', []],
+						['วิธีการซื้อขาย','309000',cURL+'/th/products/trading/equity/trading_p1.html','_top', [
+							['การซื้อขายตราสารทุน','309001',cURL+'/th/products/trading/equity/trading_p1.html','_top', []],
+							['การซื้อขายตราสารหนี้','309002',cURL+'/th/products/trading/bond/bond_trading_p1.html','_top', []],
+							['การซื้อขายตราสารอนุพันธ์','309003','http://www.tfex.co.th/th/education/files/2011-09-FiveSteps-Trading-Th.pdf ','_blank', []]
+						]],
+						['บริษัทสมาชิก','310000',cURL+'/set/memberlist.do?language=th&country=TH','_top', [
+							['รายชื่อบริษัทสมาชิกตลาดหลักทรัพย์ฯ','310001',cURL+'/set/memberlist.do?language=th&country=TH','_top', []],
+							['รายชื่อผู้ค้าตราสารหนี้ในระบบ Firsts','310002',cURL+'/th/products/member/firsts/firsts_dealer_p1.html','_top', []],
+							['รายชื่อผู้ลงทุนสถาบันในระบบ Firsts','310003',cURL+'/th/products/member/firsts/firsts_investor_p1.html','_top', []],
+							['รายชื่อบริษัทสมาชิกตลาดสัญญาซื้อขายล่วงหน้า ','310004','http://www.tfex.co.th/th/member/list.html','_blank', []],
+							['การรับสมาชิก','310005',cURL+'/th/products/member/member_stock.html','_top', []]
+						]],
+						['บริษัทผู้พัฒนาระบบ (ISV)','315000',cURL+'/th/products/isv/isv_p1.html','_top', []],
+						['SET App','317000',cURL+'/th/setapp.html','_top', [
+							['ดาวน์โหลด','317000','/th/setapp.html','_top', []],
+							['การตั้งค่า Notifications','317001','/th/setapp_noti.html','_top', []]
+						]],
+						['LINE Official','320000',cURL+'/th/LINE.html','_top', []],
+						['เครื่องมือทางการเงิน','314000',cURL+'/th/products/financial/financial_instruments.html','_top', []],
+						['แหล่งศึกษาข้อมูล','312000',cURL+'/th/products/resource/resource_p1.html','_top', [
+							['แหล่งความรู้การเงินและการลงทุน','312001',cURL+'/th/products/resource/resource_p1.html','_top', []],
+							['SET Research','312002',cURL+'/setresearch','_blank', []],
+							['การควบรวมกิจการ','312003',cURL+'/th/market/MnA.html','_top', []]
+						]],
+						['SET Research','319000',cURL+'/setresearch','_blank', []]
+					 ]];
+
+// Market Data
+var topic_market = ['ข้อมูลการซื้อขาย','400000',mURL+'/mkt/sectorialindices.do?language=th&country=TH','_top', [
+						['ดัชนี','401000',mURL+'/mkt/sectorialindices.do?language=th&country=TH','_top', [
+							['ราคาดัชนีตลาดหลักทรัพย์','401001',mURL+'/mkt/sectorialindices.do?language=th&country=TH','_top', []],
+							['ราคาดัชนี FTSE SET Series','401002',mURL+'/mkt/ftsesetindex.do?language=th&country=TH','_top', []],
+							['กราฟราคาดัชนีย้อนหลัง','401003',cURL+'/th/market/setindexchart.html','_top', []],
+							['ราคาดัชนี FTSE ASEAN','401005',cURL+'/th/market/ftse_asean.html','_top', []],
+							['รายชื่อหลักทรัพย์ที่ใช้คำนวณดัชนี','401006',cURL+'/th/market/constituents.html','_top', []],
+							['ราคาดัชนีผลตอบแทนรวม (TRI)','401004',cURL+'/th/market/tri.html','_top', []],
+							['สถิติดัชนีตลาดหลักทรัพย์','401007',cURL+'/th/market/market_statistics.html','_top', []]
+						]],
+						['ตราสารทุน','402000',mURL+'/mkt/marketsummary.do?language=th&country=TH','_top', [
+							['สรุปภาพรวมตลาด','402001',mURL+'/mkt/marketsummary.do?language=th&country=TH','_top', []],
+							['ราคาหลักทรัพย์','402002',mURL+'/mkt/sectorquotation.do?sector=SET50&language=th&country=TH','_top', []],
+							['สิบอันดับหลักทรัพย์','402003',mURL+'/mkt/topten.do?language=th&country=TH','_top', []],
+							['ข้อมูล NVDR','402004',cURL+'/set/nvdroverview.do?language=th&country=TH','_top', []],
+							['ข้อมูลธุรกรรมขายชอร์ต','402005',cURL+'/set/shortsales.do?language=th&country=TH','_top', []],
+							['สรุปมูลค่าการซื้อขาย 5 วันทำการล่าสุด','402006',mURL+'/mkt/fivedays.do?language=th&country=TH','_top', []],
+							['สรุปมูลค่าการซื้อขายตามกลุ่มนักลงทุน','402007',mURL+'/mkt/investortype.do?language=th&country=TH','_top', []]
+						]],
+						['ตราสารอนุพันธ์','403000',mURL+'/tfx/tfexoverview.do?locale=th_TH','_top', [
+							['สรุปภาพรวมตลาด','403001',mURL+'/tfx/tfexoverview.do?locale=th_TH','_top', []],
+							['ราคาอนุพันธ์','403002',mURL+'/tfx/tfexintradayreport.do?locale=th_TH','_top', []],
+							['ข้อมูลการซื้อขายรายใหญ่ (Block Trade)','403007',mURL+'/tfx/tfexblocktradereport.do?locale=th_TH','_top', []],
+							['สรุปปริมาณซื้อขายตามกลุ่มนักลงทุน','403008',mURL+'/tfx/tfexinvestortypetrading.do?locale=th_TH','_top', []],
+							['ข้อมูลการซื้อขายย้อนหลัง','403003',mURL+'/tfx/tfexhistoricalreport.do?locale=th_TH','_top', []],
+							['สถิติการซื้อขายรายใหญ่ (Stock Futures Block Trade Report)','403009','http://www.tfex.co.th/th/marketdata/sf_blocktrade_report.html','_blank', []],
+							['อันดับการซื้อขายของสมาชิก','403004',mURL+'/tfx/tfexbrokerrank.do?locale=th_TH','_top', []],
+							['ข้อมูลอ้างอิง','403005','http://www.tfex.co.th/tfex/referenceData.html?locale=th_TH','_blank', []],
+							['ดาวน์โหลด Series Profile','403006','http://www.tfex.co.th/tfex/downloadSeriesProfile.html','_blank', []]
+						]],
+						['ตราสารหนี้','404000',mURL+'/tfx/bexoverview.do?locale=th_TH','_top', [
+							['สรุปภาพรวมตลาด','404001',mURL+'/tfx/bexoverview.do?locale=th_TH','_top', []],
+							['อัตราผลตอบแทนพันธบัตรรัฐบาลระหว่างวัน','404007',mURL+'/tfx/bexgovbondyield.do?locale=th_TH','_top', []],
+							['ราคาตราสารหนี้ (AOM)','404002',mURL+'/tfx/bexquotationbyissuer.do?locale=th_TH','_top', []],
+							['ราคาเสนอซื้อ-ขาย ของ Dealer','404008',mURL+'/tfx/bexdealerquote.do?locale=th_TH','_top', []],
+							['ข้อมูลการซื้อขายย้อนหลัง','404003',mURL+'/tfx/bexhistoricaldata.do?locale=th_TH','_top', []],
+							['อัตราอ้างอิง','404004',mURL+'/tfx/bexinterestrate.do?locale=th_TH','_top', []],
+							['อันดับเครดิต','404005',mURL+'/tfx/bexcreditrating.do?locale=th_TH','_top', []],
+							['เครื่องคำนวณตราสารหนี้','404006','https://www.settrade.com/C03_05_bond_Calculator.jsp','_blank', []]
+						]],
+						['สถิติสำคัญตลาดหลักทรัพย์','405000',cURL+'/th/market/market_statistics.html','_top', []]
+				   ]];
+
+// Companies / Securities Info
+var topic_company = ['ข้อมูลบริษัท/หลักทรัพย์','500000',cURL+'/set/todaynews.do?language=th&country=TH','_top', [
+						['ข่าวบริษัท/หลักทรัพย์','501000',cURL+'/set/todaynews.do?language=th&country=TH','_top', [
+							['ข่าววันนี้','501001',cURL+'/set/todaynews.do?language=th&country=TH','_top', []],
+							['ข่าวย้อนหลัง','501002',cURL+'/set/newslistinput.do?language=th&country=TH&headline=','_top', []],
+							['Market Alerts','505002',cURL+'/set/marketalertnews.do?language=th&country=TH','_top', []],
+							['หลักทรัพย์ที่เข้าข่ายมาตรการกำกับการซื้อขาย','505003',cURL+'/set/cashbalancesecurity.do?language=th&country=TH','_top', []],
+							['หลักทรัพย์ภายใต้เครื่องหมาย C (Caution)','505004',cURL+'/set/cautionsecurity.do?language=th&country=TH','_top', []],
+							['สรุปหลักทรัพย์ตามมาตรการกำกับการซื้อขาย/เครื่องหมาย C','505005',cURL+'/set/cashbalancesummary.do?language=th&country=TH','_top', []] 
+						]],
+						['ตราสารทุน','502000',cURL+'/set/commonslookup.do?language=th&country=TH','_top', [
+							['ข้อมูลรายบริษัท/หลักทรัพย์','502001',cURL+'/set/commonslookup.do?language=th&country=TH','_top', []],
+							['ปฏิทินหลักทรัพย์','502002',cURL+'/set/xcalendar.do?language=th&country=TH','_top', []],
+							['หุ้นไอพีโอ','502003',cURL+'/th/company/ipo/upcoming_ipo_set.html','_top', []],
+							['บริษัท/หลักทรัพย์จดทะเบียนเข้าใหม่','502004',cURL+'/set/ipo.do?language=th&country=TH','_top', []],
+							['รายชื่อบริษัท/หลักทรัพย์','502005',cURL+'/th/company/companylist.html','_top', []],
+							['เลขรหัสหลักทรัพย์สากล','14030202',cURL+'/tsd/th/download/isin.html','_top', []],
+							['รายชื่อบริษัทที่รายงานว่าได้รับสัมปทานจากรัฐ ','502006',cURL+'/set/concession.do?language=th&country=TH','_top', []]
+						]],
+						['ตราสารหนี้','503000',mURL+'/tfx/bondlookup.do?locale=th_TH','_top', [
+							['ข้อมูลรายตราสารหนี้','503001',mURL+'/tfx/bondlookup.do?locale=th_TH','_top', []],
+							['ปฏิทินตราสารหนี้','503002',mURL+'/tfx/bondcalendar.do?locale=th_TH','_top', []],
+							['สรุปมูลค่าคงค้าง','503003',mURL+'/tfx/bondoutstanding.do?locale=th_TH','_top', []],
+							['ตราสารหนี้จดทะเบียนใหม่','503004',mURL+'/tfx/bondlisting.do?locale=th_TH','_top', []]
+						]],
+						['Opportunity Day & Company Highlights','504000', cURL+'/set/oppdaybyperiod.do?language=th&country=TH','_top', [
+							['Opportunity Day','504001', cURL+'/set/oppdaybyperiod.do?language=th&country=TH','_top', []],
+							['สรุปข้อสนเทศบริษัทจดทะเบียน','504002', cURL+'/set/companysummary.do?language=th&country=TH','_top', []],
+							['Stock Focus','504003', cURL+'/th/company/document/document_p1.html','_top', []]
+						]],
+						['C-Update','505000','https://www.set.or.th/streaming/#/cupdate','_blank', []]
+					]];
+						 
+// News
+var topic_news = ['ข่าว/กิจกรรม','600000',cURL+'/set/newsrelease.do?language=th&country=TH','_top', [
+						['News Release','601000',cURL+'/set/newsrelease.do?language=th&country=TH','_top', []],
+						['ปฏิทินกิจกรรม','602000',uURL+'/tsd/eventcalendar.html?locale=th_TH','_top', []],
+						['ภาพกิจกรรม','603000', cURL+'/set/activityList.do?language=th&country=TH&categoryId=1','_top', [
+							['ภาพกิจกรรมตลาดหลักทรัพย์','603001',cURL+'/set/activityList.do?language=th&country=TH&categoryId=1','_top', []],
+							['ภาพกิจกรรมบจ./ผู้ออกหลักทรัพย์','603002',cURL+'/set/activityList.do?language=th&country=TH&categoryId=2','_top', []],
+							['ภาพกิจกรรมเพื่อสังคม','603003',cURL+'/set/activityList.do?language=th&country=TH&categoryId=3','_top', []]
+						]],
+						['กิจกรรมด้านผู้ออกหลักทรัพย์','604000',cURL+'/set/iposhowcase.do?market=A&language=th&country=TH','_top', [
+							['เปิดตัวหุ้นไอพีโอ','604003',cURL+'/set/iposhowcase.do?market=A&language=th&country=TH','_top', []],
+							['SET Awards','604004',cURL+'/th/news/issuer_activities/setawards/setawards_p1.html','_top', []]
+						]],
+						['SET in the City','606000',cURL+'/th/news/set_in_the_city/set_in_the_city_p1.html','_top', []],
+						['Thailand Focus','607000','https://www.set.or.th/thailandfocus','_blank', []],
+						['Algorithmic Trading','611000',cURL+'/th/news/algorithmic_trading/algo_p1.html','_top', []],
+						['Capital Market Innovation Awards 2018','613001',cURL+'/th/news/capital_market_innovation_awards/competition_p1.html','_top', [
+							['เกี่ยวกับโครงการ','613001',cURL+'/th/news/capital_market_innovation_awards/competition_p1.html','_top', []],
+							['ประกาศผลงานเข้ารอบกลั่นกรอง','613002',cURL+'/th/news/capital_market_innovation_awards/20teams_p1.html','_top', []],
+							['ประกาศผลงานเข้ารอบตัดสิน','613003',cURL+'/th/news/capital_market_innovation_awards/10teams_p1.html','_top', []]
+						]],
+						['CM Research Innovation','612000',cURL+'/th/news/cm_research_innovation/competition_p1.html','_top', []],
+						['โครงการ LTF','608000','http://www.thaimutualfundnews.com','_blank', []],
+						['ความรับผิดชอบต่อสังคม','609000',cURL+'/th/news/csr/csr_p1.html','_top', [
+							['SET เชิดชูผู้ทำความดีเพื่อสังคม ','609001',cURL+'/th/news/csr/social_recognition_project_p1.html','_top', []]
+						]],
+						['เอกสารประกอบการสัมมนา','610000',cURL+'/th/news/download/document_p1.html','_top', []]
+					 ]];
+					 
+// Links
+var topic_links = ['เว็บไซต์น่าสนใจ','700000',cURL+'/th/links/setgroup_website.html','_top', [
+					['เว็บไซต์ในเครือตลท.','701000',cURL+'/th/links/setgroup_website.html','_top', []],
+					['บริษัทสมาชิก','702000',cURL+'/set/memberlist.do?language=th&country=TH','_top', []],
+					['องค์กรที่เกี่ยวข้อง','703000',cURL+'/th/links/capitalmkt_directory.html','_top', []],
+					['ข้อมูลเศรษฐกิจ','704000',cURL+'/th/links/econ_data.html','_top', []],
+					['ข้อมูลเกี่ยวกับตราสารหนี้','705000',cURL+'/th/links/bond_info.html','_top', []],
+					['ผู้ขายข้อมูล','706000',cURL+'/th/products/info/data_vendors_p1.html','_top', []],
+					['สื่อมวลชน','707000',cURL+'/th/links/press.html','_top', []],
+					['บริษัทจัดอันดับเครดิต','708000',cURL+'/th/links/credit.html','_top', []],
+					['บริษัทหลักทรัพย์จัดการกองทนรวม','709000','http://www.aimc.or.th','_blank', []],
+					['ตลาดหุ้นต่างประเทศ','710000','http://www.world-exchanges.org/home/index.php/members/wfe-members','_blank', []],
+					['แหล่งความรู้อนุพันธ์','711000','http://www.tfex.co.th/th/education/knowledge.html','_blank', []]
+				 ]];
+
+// FAQs
+var topic_faqs = ['ถาม - ตอบ','800000',cURL+'/th/faqs/etf_p1.html','_top', [
+					['การใช้งานเว็บไซต์','809000',cURL+'/th/faqs/web_p1.html','_top', []],
+					['อีทีเอฟ','801000',cURL+'/th/faqs/etf_p1.html','_top', []],
+					['ดัชนี FTSE SET','802000',cURL+'/th/faqs/ftse_p1.html','_top', []],
+					['ตราสารหนี้','803000',cURL+'/th/faqs/bex_p1.html','_top', []],
+					['การลงทุน','804000',cURL+'/th/faqs/investment_p1.html','_top', []],
+					['การจดทะเบียนหลักทรัพย์','805000',cURL+'/th/faqs/listing_p1.html','_top', []],
+					['การเปิดเผยข้อมูล','806000',cURL+'/th/faqs/disclosure_p1.html','_top', []],
+					['เกี่ยวกับตลท.','808000',cURL+'/th/faqs/about_set_p1.html','_top', []],
+					['FAQs สำหรับผู้ถือหุ้น','810000',cURL+'/th/faqs/shareholders_p1.html','_top', []]  
+				 ]];
+
+// Contact
+var topic_contact = ['ติดต่อเรา','900000',cURL+'/th/contact/index.html','_top', [
+						['SET Contact Center','909000','https://www.set.or.th/set/contactcenter.do?language=th&country=TH','_blank', [
+							['Email','909000',cURL+'/set/contactcenter.do','_top', []],
+							['Chat','909120','https://lc.chat/now/7604291/','_blank', []],
+							['Facebook Chat','909130','http://m.me/set.or.th','_blank', []],
+							['FAQs','909140',cURL+'/th/faqs/shareholders_p1.html','_blank', []]
+						]],
+						['ห้องสมุดมารวย','901000','http://www.maruey.com','_blank', []],
+						['บจ.พบผู้ลงทุน','902000',cURL+'/set/oppdaybyperiod.do?language=th&country=TH','_top', []],
+						['SET Research','905000','http://www.set.or.th/setresearch','_blank', []],
+						['SETSMART','906000','https://www.set.or.th/th/products/info/setsmart_p1.html','_blank', []],
+						['settrade','907000','https://www.settrade.com','_blank', []],
+						['TFEX','908000','https://www.tfex.co.th','_blank', []]
+					]];
+
+// GMS Exchanges
+var topic_gms = ['GMS Exchange','1000000',cURL+'/gms_exchanges/index.html','_top', [
+					['รู้จักกับตลาดหลักทรัพย์ใน GMS','1001000',cURL+'/th/gms_exchanges/overview.html','_top', []],
+					['สินค้าที่เชื่อมโยงกับการลงทุนใน GMS','1002000',cURL+'/th/gms_exchanges/linked_products.html','_top', []],
+					['บริษัทสมาชิกที่มีธุรกิจใน GMS','1003000',cURL+'/th/gms_exchanges/brokerage.html','_top', []],
+					['ข้อมูลการซื้อขายของตลาดหลักทรัพย์ใน GMS','1004000',mURL+'/mkt/gmstrading.do?language=th&country=TH','_top', []],
+					['SET CLMV Exposure Index (SETCLMV)','1006000', cURL+'/th/products/index/SETCLMV.html','_blank', []]
+				]];
+				
+// Thai Trust Fund
+var topic_ttf = ['Thai Trust Fund','1600000',cURL+'/ttf/index.html','_top', [
+					['ภาพรวมของบริษัท','1601000',cURL+'/th/ttf/overview.html','_top', []],
+					['ข่าว','1602000',cURL+'/th/ttf/news.html','_top', []]
+				]];	
+				
+
+// Online Investor
+var topic_onlineinvestor = ['Online Investor','1700000',cURL+'/onlineinvestor/index.html','_top', [
+					['หน้าหลัก','1701000',cURL+'/th/onlineinvestor/main.html','_top', []],
+					['มือใหม่ ลงทุนออนไลน์ ','1702000',cURL+'/th/onlineinvestor/howto/howto.html','_top', []],
+					['เครื่องมือ ลงทุนออนไลน์ ','1703000',cURL+'/th/onlineinvestor/tools/tools.html','_top', []],
+					['ทดลองลงทุน Click2Win','1704000',cURL+'/th/onlineinvestor/click2win/click2win.html','_top', []],
+					['Digital Channel','1705000',cURL+'/th/onlineinvestor/channel/channel.html','_top', []]
+				]];		
+
+
+// SET Research
+var topic_setresearch = ['SET Research','1800000',cURL+'/th/setresearch/setresearch_p1.html','_top', [
+					['SET Research','1807000',cURL+'/th/setresearch/setresearch_p1.html','_top', []],
+					['Database','1801000',cURL+'/th/setresearch/database/overview.html','_top', [
+							['Overview','1801000',cURL+'/th/setresearch/database/overview.html','_top', []],
+							['Market Microstructure','1801001',cURL+'/th/setresearch/database/mkt_microstructure.html','_top', []],
+							['SETSMART','1801002',cURL+'/th/setresearch/database/setsmart.html','_top', []],
+							['CG Database','1801003',cURL+'/th/setresearch/database/cg_database.html','_top', []],
+							['Economic Exposure Universe','1801004',cURL+'/th/setresearch/database/eco_exposure_universe.html','_top', []],
+							['Dividend Universe','1801005',cURL+'/th/setresearch/database/dividend_universe.html','_top', []]
+						]],
+					['Information','1802000', cURL+'/th/setresearch/information/press_release.html','_top', [
+							['Press Release','1802001',cURL+'/th/setresearch/information/press_release.html','_top', []],
+							['Market Situation','1802002',cURL+'/th/setresearch/setresearch_p1.html#current','_top', []],
+							['International Roundup','1802003',cURL+'/th/setresearch/information/inter_roundup.html','_top', []],
+							['SET Note','1802004',cURL+'/th/setresearch/information/setnote.html','_top', []],
+							['SET Note: Quarterly Corporate Review','1802005',cURL+'/th/setresearch/information/setnote_corp_review.html','_top', []]
+						]],
+					['Research','1803000', cURL+'/th/setresearch/research/research_paper.html','_top', [
+							['CMRI Research Paper','1803001',cURL+'/th/setresearch/research/research_paper.html','_top', []],
+							['CMRI Working Paper','1803002',cURL+'/th/setresearch/research/working_paper.html','_top', []],
+							['Related Paper','1803003',cURL+'/th/setresearch/research/related_paper.html','_top', []]
+						]],
+					['Events','1804000', cURL+'/th/setresearch/events/forum.html','_top', [
+							['Forum','1804001',cURL+'/th/setresearch/events/forum.html','_top', []],
+							['Domestic Symposium','1804002',cURL+'/th/setresearch/events/domestic_symposium.html','_top', []]
+						]],
+					['ICMC','1805000',cURL+'/ICMC/index.html','_top', []],
+					['Sentiment Indices','1806000', cURL+'/th/setresearch/sentiment_indices/sentiment_indices.html','_top', [
+							['Overview','1806000',cURL+'/th/setresearch/sentiment_indices/sentiment_indices.html','_top', []],
+							['CEO Survey By CMRI & TLCA & TSD','1806001',cURL+'/th/setresearch/sentiment_indices/ceo_survey.html','_top', []],
+							['Investor Sentiment Index(Market Base) by CMRI','1806002',cURL+'/th/setresearch/sentiment_indices/cmri.html','_top', []],
+							['Indices by FETCO','1806003',cURL+'/th/setresearch/sentiment_indices/fetco.html','_top', []]
+						]],
+					['Research Grant','1808000',cURL+'/th/setresearch/grant/research_grant.html','_top', []]
+				]];					
+				
+				
+// UNIT - mai
+var topic_mai = ['ตลาด mai','11000000', cURL+'/mai/th/index.html','_top', [
+					['เกี่ยวกับ mai', '11010000', cURL + '/mai/th/about/structure.html', '_top', [
+/*						['โครงสร้างองค์กร', '11010100', cURL + '/mai/th/about/structure.html', '_top', []], */
+						['พันธกิจและวิสัยทัศน์', '11010200', cURL + '/mai/th/about/vision.html', '_top', []],						
+						['บันทึกเหตุการณ์', '11010300', cURL + '/mai/th/about/milestone.html', '_top', []],
+						['วันหยุด', '11010400', cURL + '/set/holiday.do?language=th&country=TH', '_top', []],
+						['เวลาการซื้อขาย', '11010500', cURL + '/th/products/trading/equity/tradingsystem_p2.html', '_top', []]
+					]],
+					['กฎเกณฑ์/กำกับ ', '11020000', uURL + '/mai/notification.do?locale=th_TH', '_top', []],
+					['ข่าว', '11030000', uURL + '/mai/todaynews.do?locale=th_TH', '_top', [
+						['ข่าววันนี้', '11030100', uURL + '/mai/todaynews.do?locale=th_TH', '_top', []],
+						['ข่าวย้อนหลัง ', '11030200', cURL + '/set/newslistinput.do?language=th&country=TH&headline=', '_top', []]
+					]],					
+					['ข้อมูลการซื้อขาย', '11040000', uURL + '/mai/stocklistbytype.do?locale=th_TH', '_top', [
+						['ราคาหลักทรัพย์', '11040100', mURL + '/mkt/sectorquotation.do?sector=mai&language=th&country=TH', '_top', []],
+						['สิบอันดับหลักทรัพย์', '11040200', mURL + '/mkt/topten.do?market=mai&language=th&country=TH', '_top', []],
+						['ข้อมูล NVDR', '11040300', cURL + '/set/nvdroverview.do?language=th&country=TH', '_top', []],
+						['สรุปการซื้อขาย 5 วันทำการล่าสุด ', '11040400', uURL + '/mai/fivedays.do?locale=th_TH', '_top', []],
+						['สรุปมูลค่าการซื้อขายตามกลุ่มนักลงทุน ', '11040500', uURL + '/mai/investortype.do?locale=th_TH', '_top', []]
+					]],
+					['ข้อมูลบริษัทจดทะเบียน', '11050000', uURL + '/maiinfo/stockslookup.do?locale=th_TH', '_top', [
+						['ข้อมูลรายบริษัท/หลักทรัพย์ ', '11050100', uURL + '/mai/stockslookup.do?locale=th_TH', '_top', []],
+						['ปฏิทินหลักทรัพย์ ', '11050200', uURL + '/mai/xcalendar.do?locale=th_TH', '_top', []],
+						['วันที่จัดประชุมผู้ถือหุ้น ', '11050300', uURL + '/mai/meetingcalendar.do?locale=th_TH', '_top', []],
+						['Opportunity Day', '11050400', uURL + '/mai/oppdaybyperiod.do?locale=th_TH', '_top', []],
+						['บทวิเคราะห์ ', '11050500', uURL + '/mai/research.do?locale=th_TH', '_top', []],
+						['ดัชนี mai', '11050600', cURL + '/th/products/index/maiindex_p1.html', '_top', []],
+						['โครงสร้างกลุ่มอุตสาหกรรม', '11050700', cURL + '/mai/th/company/industry_group_p1.html', '_top', [
+							['ภาพรวม ', '11050701', cURL + '/mai/th/company/industry_group_p1.html', '_top', []],
+							['ทำความรู้จัก 8 กลุ่มอุตสาหกรรม mai', '11050702', cURL + '/mai/th/company/industry_group_p2.html', '_top', []]
+						]],
+					]],
+					['การเข้าจดทะเบียน/IPO', '11060000', cURL + '/mai/th/ipo/info.html', '_top', [
+						['การเข้าจดทะเบียนใน mai', '11060100', cURL + '/th/products/listing2/listing_mai_p1.html', '_top', []],
+						['หุ้น IPO', '11060200', cURL + '/th/company/ipo/upcoming_ipo_mai.html', '_top', []],
+						['เปิดตัวหุ้น IPO', '11060300', cURL + '/set/iposhowcase.do?market=S&language=th&country=TH', '_top', []],
+						['บริษัทจดทะเบียนเข้าใหม่', '11060400', uURL + '/mai/iporeport.do?locale=th_TH', '_top', []]
+					]],
+					['กิจกรรม', '11070000', uURL + '/mai/activitycontent.do?locale=th_TH&categoryId=2', '_top', [
+						['ปฏิทินกิจกรรม', '11070100', uURL +'/tsd/eventcalendar.html?locale=th_TH', '_blank', []],
+						['ภาพกิจกรรม', '11070200', cURL + '/set/activityList.do?language=th&country=TH&categoryId=2', '_top', []],
+						['สื่อและเอกสารเผยแพร่', '11070300', cURL + '/th/products/financial/financial_instruments.html', '_top', [
+							['สำหรับบริษัทจดทะเบียน', '11070301', cURL + '/th/products/financial/financial_instruments.html', '_top', []],
+							['สำหรับบุคคลทั่วไป ', '11070302', cURL + '/th/company/document/document_p1.html', '_top', []],
+							['สำหรับบริษัทที่สนใจเข้าจดทะเบียน', '11070303', cURL + '/th/products/listing2/listing_mai_p1.html', '_top', []],
+							['คอลัมน์ mai monitor', '11070304', cURL + '/mai/th/activities/mai_monitor.html', '_top', []],
+							['รายการ Smart Focus', '11070305', cURL + '/mai/th/activities/smart_focus.html', '_top', []]
+						]],
+						['mai FORUM', '11070400', cURL + '/mai/th/activities/maiforum_p1.html', '_top', []]
+					]],
+					['กองทุนที่ลงทุนใน mai ', '11080000', cURL + '/mai/th/mai_fund/mai_fund_p1.html', '_top', []]
+				]];
+
+// UNIT - TCH
+var topic_tch = ['สำนักหักบัญชี TCH','13000000', cURL+'/tch/th/index.html','_top', [
+					['เกี่ยวกับ TCH', '13010000', cURL + '/tch/th/about/about.html', '_top', [
+						['รายละเอียดบริษัท', '13010100', cURL + '/tch/th/about/about.html', '_top', []],
+						['การกำกับดูแลกิจการ ', '13010400', cURL + '/tch/th/about/cg.html', '_top', []],
+						['วันหยุดประจำปี', '13010200', cURL + '/set/holiday.do?language=th&country=TH', '_top', []],
+						['ติดต่อ TCH', '13010300', cURL + '/tch/th/about/contact.html', '_top', []]
+					]],
+					['ตราสารทุนและตราสารหนี้', '13020000', cURL + '/tch/th/equity/members.html', '_top', [
+						['สมาชิกภาพ', '13020100', cURL + '/tch/th/equity/members.html', '_top', []],
+						['Clearing and Settlement System', '13020200', cURL + '/tch/th/equity/services.html', '_top', []],
+						['การบริหารความเสี่ยง', '13020300', cURL + '/tch/th/equity/risk.html', '_top', [
+							['การกำกับดูแลสมาชิก', '13020301', cURL + '/tch/th/equity/risk.html#member', '_top', []],
+							['การให้บริการยืมและให้ยืมหลักทรัพย์ เพื่อการส่งมอบต่อสำนักหักบัญชี', '13020302', cURL + '/tch/th/equity/risk.html#borrowing', '_top', []],
+							['การซื้อหลักทรัพย์เพื่อการส่งมอบกรณีผิดนัด', '13020303', cURL + '/tch/th/equity/risk.html#buyin', '_top', []],
+							['กองทุนทดแทนความเสียหายในระบบชำระราคาและส่งมอบหลักทรัพย์', '13020304', cURL + '/tch/th/equity/risk.html#fund', '_top', []],
+							['แหล่งเงินทุน', '13020305', cURL + '/tch/th/equity/risk.html#financial', '_top', []]
+						]],
+						['แบบฟอร์ม', '13020400', cURL + '/tch/th/equity/equity_form.html', '_top', []]
+					]],
+					['สัญญาซื้อขายล่วงหน้า', '13030000', cURL + '/tch/th/derivatives/deriv_members.html', '_top', [
+						['สมาชิกภาพ', '13030100', cURL + '/tch/th/derivatives/deriv_members.html', '_top', []],
+						['Clearing and Settlement System', '13030200', cURL + '/tch/th/derivatives/deriv_services.html', '_top', []],
+						['การบริหารความเสี่ยง', '13030300', cURL + '/tch/th/derivatives/deriv_risk.html', '_top', [
+							['หลักการเรียกเก็บหลักประกัน', '13030301', cURL + '/tch/th/derivatives/deriv_risk.html#margin', '_top', []],
+							['ชนิดหลักประกัน', '13030302', cURL + '/tch/th/derivatives/deriv_risk.html#type', '_top', []],
+							['Security Deposit and Clearing Fund', '13030303', cURL + '/tch/th/derivatives/deriv_risk.html#fund', '_top', []],
+							['การดำเนินการกรณีผิดนัด', '13030304', cURL + '/tch/th/derivatives/deriv_risk.html#default', '_top', []],
+							['แหล่งเงินทุน', '13030305', cURL + '/tch/th/derivatives/deriv_risk.html#capital', '_top', []]
+						]],
+						['แบบคำขอและรายงาน', '13030400', cURL + '/tch/th/derivatives/deriv_cs_rule.html#form_request', '_top', []]
+					]],
+					['กฎเกณฑ์/กำกับ', '13040000', cURL + '/set/notification.do?idLv1=144&language=th&country=TH', '_top', [
+						['ตราสารทุนและตราสารหนี้', '13040100', cURL + '/set/notification.do?idLv1=144&language=th&country=TH', '_top', [
+							['ข้อบังคับ', '13040101', cURL + '/set/notification.do?idLv1=144&language=th&country=TH', '_top', []],
+							['ประกาศ/หนังสือเวียน', '13040102', cURL + '/tch/th/equity/equity_announcement.html', '_top', []],
+							['ตารางเวลาระบบงานชำระราคาและส่งมอบหลักทรัพย์', '13040103', cURL + '/tch/th/equity/schedule.html', '_top', []],
+							['ค่าธรรมเนียมและค่าปรับ', '13040104', cURL + '/tch/th/equity/fee.html', '_top', []]
+						]],
+						['สัญญาซื้อขายล่วงหน้า', '13040200', cURL + '/set/notification.do?idLv1=144&idLv2=147&language=th&country=TH', '_top', [
+							['ข้อบังคับและวิธีปฎิบัติ', '13040201', cURL + '/set/notification.do?idLv1=144&idLv2=147&language=th&country=TH', '_top', []],
+							['ข่าวสารและประกาศ', '13040202', cURL + '/tch/th/derivatives/news.html', '_top', []]
+						]]
+					]],
+					['เอกสารเผยแพร่ ', '13050000', cURL + '/tch/th/derivatives/tch_factsheet.html', '_top', [
+						['รายงานผลการดำเนินงาน TCH', '13050700', cURL + '/tch/th/derivatives/tch_factsheet.html', '_top', []],
+						['ข้อมูลสถิติ', '13050100', cURL + '/tch/th/derivatives/statistic.html', '_top', []],
+						['เอกสารการประชุม', '13050200', cURL + '/tch/th/derivatives/meeting_info.html', '_top', []],						
+						['เอกสารอบรม', '13050300', cURL + '/tch/th/derivatives/training_info.html', '_top', []],
+						['Download ข้อมูล Risk Parameter File', '13050400', cURL + '/tch/th/derivatives/download.html', '_top', []],
+						['Q&A', '13050500', cURL + '/tch/th/derivatives/question.html', '_top', []]
+					]]
+				]];
+				
+// UNIT - TSD
+var topic_tsd = ['ศูนย์รับฝากหลักทรัพย์ ', '14000000', cURL + '/tsd/th/index.html', '_top', [
+					['เกี่ยวกับ TSD', '14010000', cURL + '/tsd/th/about/overview.html', '_top', [
+						['รายละเอียดบริษัท', '14010100', cURL + '/tsd/th/about/overview.html', '_top', []],
+						['การกำกับดูแลกิจการ ', '14010400', cURL + '/tsd/th/about/cg.html', '_top', []],
+						['วันหยุดประจำปี', '14010200', cURL + '/set/holiday.do?language=th&country=TH', '_top', []],
+						['ติดต่อ TSD', '14010300', cURL + '/tsd/th/about/contact.html', '_top', []]
+					]],
+					['นักลงทุน', '14020000', cURL + '/tsd/th/service/edividend.html', '_top', [
+						['e-Dividend', '14020100', cURL + '/tsd/th/service/edividend.html', '_top', []],
+						['e-Document', '14021200', cURL + '/tsd/th/service/edocument.html', '_top', []],
+						['Issuer Account', '14020200', cURL + '/tsd/th/service/issuer_account.html', '_top', []],
+						['Investor Portal', '14020300', cURL + '/tsd/th/investorportal/investorportal.html', '_blank', []],
+						['ค่าธรรมเนียมของผู้ถือหุ้น', '14020400', cURL + '/tsd/th/info/fee1_shareholders.html#2', '_top', []],
+						['แบบฟอร์มสำหรับผู้ถือหุ้น', '14020500', cURL + '/tsd/th/service/service_form.html#RegistrarHolder', '_top', []],
+						['รายชื่อบริษัทที่  TSD เป็นนายทะเบียน', '14020600', cURL + '/tsd/th/info/TSDAsRegistrar.html', '_top', []],
+						['รายการเกี่ยวกับใบหุ้น', '14020700', cURL + '/tsd/th/service/securities_transfer.html', '_top', [
+							['การโอนหุ้น', '14020701', cURL + '/tsd/th/service/securities_transfer.html', '_top', []],
+							['การแจ้งขอแก้ไขข้อมูลผู้ถือหุ้น', '14020702', cURL + '/tsd/th/service/investor_profile.html', '_top', []],
+							['รายการใบหุ้นสูญหาย', '14020703', cURL + '/tsd/th/download/loss_cer.html', '_top', []],
+							['ประวัติใบหุ้นเวนคืน ', '14020704', cURL + '/tsd/th/download/redemtion.html', '_top', []],
+							['ประกาศอายัดใบหุ้นตามคำสั่งกรมบังคับคดี ', '14020705', cURL + '/tsd/th/download/seize.html', '_top', []],
+							['ประวัติเปลี่ยนชื่อหลักทรัพย์และเวนคืนใบหุ้น', '14020706', cURL + '/tsd/th/info/SecurityChangeProfile.html', '_top', []]
+						]],
+						['การจำนำหุ้น', '14020800', cURL + '/tsd/th/service/pledged_securities.html', '_top', [
+							['การจดแจ้งจำนำ', '14020801', cURL + '/tsd/th/service/pledged_securities.html', '_top', []],
+							['การเพิกถอนการจำนำ', '14020802', cURL + '/tsd/th/service/pledged_securities_withdraw.html', '_top', []],
+							['ข้อมูลเพิ่มเติม', '14020803', cURL + '/tsd/th/service/faq_pledged_securities.html', '_top', []]
+						]],
+						['เช็คเงินปันผล', '14020900', cURL + '/tsd/th/service/cheque.html', '_top', []],
+						['การขอเอกสารและตรวจสอบข้อมูล', '14021000', cURL + '/tsd/th/service/securities_holder_records.html', '_top', [
+							['การขอคัดรายละเอียดหุ้นและหนังสือรับรองการถือหลักทรัพย์', '14021001', cURL + '/tsd/th/service/securities_holder_records.html', '_top', []],
+							['การประมวลผลเพื่อการจ่ายสิทธิประโยชน์', '14021002', cURL + '/tsd/th/service/securities_holder_right.html', '_top', []],
+							['การติดต่อขอรับเอกสารตีคืน', '14021003', cURL + '/tsd/th/service/return_document.html', '_top', []]
+						]],
+						['แนวทางการบันทึกข้อมูลภาษีหัก ณ ที่จ่ายของ TSD', '14021200', cURL + '/tsd/th/service/tax_guideline.html', '_top', []],
+						['โครงการปันหุ้นออมบุญ', '14021100', cURL + '/tsd/th/service/donation.html', '_top', []]   						
+					]],
+					['บริษัทสมาชิกผู้ฝากหลักทรัพย์', '14030000', cURL + '/tsd/th/service/service2.html', '_top', [
+						['บริการรับฝากหลักทรัพย์', '14030100', cURL + '/tsd/th/service/service2.html', '_top', []],
+						['บริการ REPO', '14030200', cURL + '/tsd/th/service/repo.html', '_top', []],
+						['บริการ SBL', '14031000', cURL + '/tsd/th/service/sbl.html', '_top', []],
+						['รายชื่อสมาชิกผู้ฝากหลักทรัพย์', '14030300', cURL + '/tsd/th/service/list.html', '_top', []],
+						['ค่าธรรมเนียมต่างๆ', '14030400', cURL + '/tsd/th/info/fee1.html', '_top', [
+							['ค่าธรรมเนียมงานรับฝากหลักทรัพย์และค่าปรับงานรับฝากหลักทรัพย์', '14030401', cURL + '/tsd/th/info/fee1_depo.html#1', '_top', []],
+							['ค่าธรรมเนียมนายทะเบียนนอก', '14030402', cURL + '/tsd/th/info/fee1.html#1.5', '_top', []]
+						]],
+						['แบบฟอร์มงานบริการรับฝากหลักทรัพย์', '14030500', cURL + '/tsd/th/service/service_form.html#3', '_top', []],
+						['บริการระบบปฏิบัติการสำหรับสมาชิก', '14030600', cURL + '/tsd/th/service/bsb_info.html', '_top', []],
+						['TSD  Corporate  Mail', '14030700', 'http://www.tsd.co.th/corpmail/main.asp', '_blank', []],
+						['Depository Portal', '14030800', 'https://www.setportal.set.or.th/webport/', '_blank', []],
+						['BSB Portal', '14030900', 'https://www.setportal.set.or.th/webport/lportal/portal/layout.do', '_blank', []]
+					]],
+					['บริษัทจดทะเบียน', '14040000', cURL + '/tsd/th/service/service1.html', '_top', [
+						['บริการนายทะเบียนหลักทรัพย์', '14040100', cURL + '/tsd/th/service/service1.html', '_top', []],
+						['แบบฟอร์มงานบริการนายทะเบียนหลักทรัพย์', '14040200', cURL + '/tsd/th/service/service_form.html#1', '_top', []],
+						['ข้อกำหนดสิทธิหุ้นกู้', '14040300', uURL + '/tsd/debenture.html', '_top', []],
+						['Issuer Portal', '14040400', 'https://www.setportal.set.or.th/webport/lportal/portal/layout.do?p_l_id=1.1', '_blank', []]
+					]],
+					['กฎเกณฑ์/กำกับ', '14050000', cURL + '/set/notification.do?idLv1=5&idLv2=49&language=th&country=TH', '_top', [
+						['งานนายทะเบียนหลักทรัพย์', '14050100', cURL + '/set/notification.do?idLv1=5&idLv2=49&language=th&country=TH', '_top', []],
+						['งานรับฝากหลักทรัพย์', '14050200', cURL + '/set/notification.do?idLv1=5&idLv2=48&language=th&country=TH', '_top', []]
+					]],
+					['ข้อมูลสถิติ', '14060000', cURL + '/tsd/th/download/tsd_factsheet.html', '_top', [
+						['รายงานผลการดำเนินงาน TSD', '14060200', cURL + '/tsd/th/download/tsd_factsheet.html', '_top', []],
+						['สถิติเกี่ยวกับงานบริการหลังการซื้อขาย', '14060100', cURL + '/tsd/th/download/statistic.html', '_top', []]
+					]],
+					['ข้อมูล ISIN CFI และ FISN','14070000',cURL+'/tsd/th/download/isin.html','_top', []],
+					['FundConnext','14080000',cURL+'/tsd/th/fundconnext/overview.html','_top', []]
+				]];
+				
+// UNIT - Sustainable Development 
+var topic_srcenter = ['ศูนย์พัฒนาธุรกิจฯ','15000000',cURL + '/sustainable_dev/th/index.html', '_top', [
+						['ศูนย์พัฒนาการกำกับดูแลกิจการบริษัทจดทะเบียน','15010000', cURL + '/sustainable_dev/th/cg/history_p1.html', '_top', [
+							['ความเป็นมา', '15010100', cURL + '/sustainable_dev/th/cg/history_p1.html', '_top', []],
+							['หลักการและแนวทางปฏิบัติด้านการกำกับดูแลกิจการที่ดี', '15010200', cURL + '/sustainable_dev/th/cg/principle_p1.html', '_top', [
+								['สิทธิของผู้ถือหุ้น', '15010201', cURL + '/sustainable_dev/th/cg/shareholder_right_p1.html', '_top', []],
+								['การปฏิบัติต่อผู้ถือหุ้นอย่างเท่าเทียมกัน', '15010202', cURL + '/sustainable_dev/th/cg/equal_p1.html', '_top', []],
+								['บทบาทของผู้มีส่วนได้เสีย', '15010203', cURL + '/sustainable_dev/th/cg/role_p1.html', '_top', []],
+								['การเปิดเผยข้อมูลและความโปร่งใส', '15010204', cURL + '/sustainable_dev/th/cg/disclosure_p1.html', '_top', []],
+								['ความรับผิดชอบของคณะกรรมการ', '15010205', cURL + '/sustainable_dev/th/cg/responsibility_p1.html', '_top', []]
+							]],
+							['งานพัฒนาบริษัทจดทะเบียน', '15010300', cURL + '/sustainable_dev/th/cg/calendar_p1.html', '_top', [
+								['ปฏิทินกิจกรรม', '15010301', cURL + '/sustainable_dev/th/cg/calendar_p1.html', '_top', []],
+								['คลังความรู้และข้อมูลต่างๆ', '15010302', cURL + '/sustainable_dev/th/cg/seminar_p1.html', '_top', []],
+								['คำถามที่พบบ่อย', '15010303', cURL + '/sustainable_dev/th/cg/faqs_p1.html', '_top', []]
+							]],
+							['การสำรวจรายงานการกำกับดูแลกิจการ', '15010400', cURL + '/sustainable_dev/th/cg/survey_p1.html', '_top', [
+								['สรุปผลการสำรวจการกำกับดูแลกิจการของบริษัทจดทะเบียน', '15010401', cURL + '/sustainable_dev/th/cg/survey_p1.html', '_top', []],
+								['รายงานการกำกับดูแลกิจการบริษัทจดทะเบียน', '15010402', 'http://www.thai-iod.com/th/publications.asp?type=4', '_blank', []],
+								['รางวัลด้านการรายงานบรรษัทภิบาลดีเยี่ยม', '15010403', cURL + '/sustainable_dev/th/cg/awards_p1.html', '_top', []]
+							]],
+							['ASEAN Corporate Governance Scorecard', '15010500', cURL + '/sustainable_dev/th/cg/scorecard_p1.html', '_top', []]
+						]],
+						['ศูนย์พัฒนาความรับผิดชอบต่อสังคม','15020000', cURL + '/sustainable_dev/th/sr/index.html', '_top', [
+							['เกี่ยวกับ SR Center', '15020100', cURL + '/sustainable_dev/th/sr/about/about_p1.html', '_top', []],
+							['การพัฒนาความยั่งยืนของบริษัทจดทะเบียน', '15020200', cURL + '/sustainable_dev/th/sr/sd/sd_p1.html', '_top', [
+								['การพัฒนาความรู้ด้านความยั่งยืน', '15020201', cURL + '/sustainable_dev/th/sr/sd/educate_p1.html', '_top', []],
+								['การพัฒนาความรู้ด้านการจัดทำรายงานแห่งความยั่งยืน', '15020202', cURL + '/sustainable_dev/th/sr/sd/report_p1.html', '_top', []],
+								['การให้รางวัลด้านความยั่งยืน', '15020203', cURL + '/sustainable_dev/th/sr/sd/awards_p1.html', '_top', []],
+								['การส่งเสริมบริษัทจดทะเบียนเข้าสู่ตัวชี้วัดด้านความยั่งยืน', '15020204', cURL + '/sustainable_dev/th/sr/sd/evaluation_p1.html', '_top', []]
+							]],
+							['การส่งเสริมการลงทุนอย่างยั่งยืน', '15020300', cURL + '/sustainable_dev/th/sr/sri/sri_p1.html', '_top', [
+								['Thailand Sustainability Investment', '15020301', cURL + '/sustainable_dev/th/sr/sri/thsi_p1.html', '_top', []]
+							]],
+							/* ['กิจกรรม SR Center', '15020400', cURL + '/sustainable_dev/th/sr/activities/activities_p1.html', '_top', [
+								['Upcoming Events', '15020401', cURL + '/sustainable_dev/th/sr/activities/activities_p1.html', '_top', []],
+								['ปี 2561', '15020407', cURL + '/sustainable_dev/th/sr/activities/activities_61.html', '_top', []],
+								['ปี 2560', '15020406', cURL + '/sustainable_dev/th/sr/activities/activities_60.html', '_top', []],
+								['ปี 2559', '15020405', cURL + '/sustainable_dev/th/sr/activities/activities_59.html', '_top', []],
+								['ปี 2558', '15020403', cURL + '/sustainable_dev/th/sr/activities/activities_58.html', '_top', []],
+								['ปีย้อนหลัง', '15020404', cURL + '/sustainable_dev/th/sr/activities/activities_archive.html', '_top', []]
+							]],*/
+							['หนังสือ/เอกสารเผยแพร่', '15020500', cURL + '/sustainable_dev/th/sr/publication/pub_p1.html', '_top', [
+								['หนังสือ SR Center', '15020501', cURL + '/sustainable_dev/th/sr/publication/pub_p1.html', '_top', []],
+								['วารสาร SD Focus', '15020502', cURL + '/sustainable_dev/th/sr/publication/sdfocus_p1.html', '_top', []]
+							]],
+							['คลังความรู้', '15020600', cURL + '/sustainable_dev/th/sr/knowledge/principles_p1.html', '_top', [
+								['Principles /Concepts', '15020601', cURL + '/sustainable_dev/th/sr/knowledge/principles_p1.html', '_top', []],
+								['Guidelines', '15020602', cURL + '/sustainable_dev/th/sr/knowledge/guidelines_p1.html', '_top', []],
+								['บทความ', '15020603', cURL + '/sustainable_dev/th/sr/knowledge/articles_p1.html', '_top', []],
+								['ตัวอย่างกรณีศึกษาด้านความยั่งยืน', '15020604', cURL + '/sustainable_dev/th/sr/knowledge/sdcases_p1.html', '_top', []],
+								['ลิงก์เกี่ยวข้อง', '15020605', cURL + '/sustainable_dev/th/sr/knowledge/related_links_p1.html', '_top', []],
+								['คลิปวีดีโอ ', '15020606', cURL + '/sustainable_dev/th/sr/knowledge/video_p1.html', '_top', []]
+							]]
+						]],
+						['การลงทุนเพื่อสังคม ','15040000', cURL + '/sustainable_dev/th/social_impact_investment/index.html','_top', [
+							['การลงทุนเพื่อสังคมคืออะไร', '15040100', cURL + '/sustainable_dev/th/social_impact_investment/about_p1.html#what', '_top', []],
+							['กิจการเพื่อสังคม', '15040100', cURL + '/sustainable_dev/th/social_impact_investment/about_p1.html#social_enterprise', '_top', []],
+							['การส่งเสริมการลงทุนเพื่อสังคม', '15040100', cURL + '/sustainable_dev/th/social_impact_investment/about_p1.html#enhance', '_top', []],
+							['SET Social Impact Platform', '15040200', cURL + '/sustainable_dev/th/social_impact_investment/ssi_p1.html', '_top', []]
+						]],
+						['การพัฒนางานนักลงทุนสัมพันธ์ ','15030000', cURL + '/sustainable_dev/th/ir/development_p1.html','_top', [
+							['การพัฒนาความรู้และวิชาชีพ IR', '15030100', cURL + '/sustainable_dev/th/ir/development_p1.html', '_top', []],
+							['กิจกรรมพัฒนางานนักลงทุนสัมพันธ์', '15030200', cURL + '/sustainable_dev/th/ir/activities_p1.html', '_top', []],
+							['โครงการให้คำปรึกษาเชิงลึกด้าน IR', '15030300', cURL + '/sustainable_dev/th/ir/consulting_p1.html', '_top', []],
+							['Best IR Awards', '15030400', cURL + '/sustainable_dev/th/ir/awards_p1.html', '_top', []],
+							['คลังความรู้และข้อมูลต่างๆ ', '15030500', cURL + '/sustainable_dev/th/ir/knowledge_p1.html', '_top', []]
+						]],
+						['Innovation','15050000', cURL + '/sustainable_dev/th/innovation/education/activities.html','_top', [
+							['Education', '15050100', cURL + '/sustainable_dev/th/innovation/education/activities.html', '_top', [
+								['กิจกรรมส่งเสริม Innovation', '15050101', cURL + '/sustainable_dev/th/innovation/education/activities.html', '_top', []]
+							]]
+						]]
+					]];
+
+// EDUCATION
+var topic_edu = ['ห้องเรียนนักลงทุน ','1200000',cURL + '/education/th/index.html', '_top', [
+                    ['หน้าหลัก','1200000', cURL + '/education/th/index.html', '_top', []],
+                    ['มือใหม่เริ่มลงทุน','1202001', cURL + '/education/th/begin/begin.html', '_top', []],
+                    ['ทางเลือกลงทุน','1202000', cURL + '/education/th/begin/stock.html', '_top', [
+						['หุ้น','1202002',cURL+'/education/th/begin/stock.html','_top', []],
+						['อนุพันธ์','1202003',cURL+'/education/th/begin/derivatives.html','_top', []],
+                        ['กองทุนรวม','1202005',cURL+'/education/th/begin/mutualfund.html','_top', []],
+                        ['DW','1202007',cURL+'/education/th/begin/dw.html','_top', []],
+						['อีทีเอฟ','1202004',cURL+'/education/th/begin/etf.html','_top', []],						
+						['ตราสารหนี้','1202006',cURL+'/education/th/begin/bond.html','_top', []]
+					]],
+                    ['หลักสูตรการอบรม/สัมมนา ','1204001', cURL + '/education/th/inv_classroom/bangkok.html', '_top', []],
+                    ['สัมมนาออนไลน์','1205001',cURL+'/education/th/online_classroom/onlineseminar.html','_top', []],
+                    ['คลิปความรู้','1205002',cURL+'/education/th/online_classroom/clip.html','_top', []],
+                    ['e-Learning','1205003',cURL+'/education/th/online_classroom/elearning.html','_top', []],
+                    ['บทความ','1205004',cURL + '/education/th/online_classroom/article.html','_top', [
+                        ['การวางแผนการเงิน', '1205401', cURL + '/set/article.do?subtopicId=35&topicId=35&language=th&country=TH', '_top', []],
+                        ['เศรษฐกิจกับการลงทุน', '1205402', cURL + '/set/article.do?subtopicId=36&topicId=36&language=th&country=TH', '_top', []],
+                        ['การลงทุนใน - หุ้นสามัญ', '1205403', cURL + '/set/article.do?subtopicId=37&topicId=37&language=th&country=TH', '_top', []],
+                        ['การลงทุนใน - ตราสารหนี้', '1205404', cURL + '/set/article.do?subtopicId=38&topicId=37&language=th&country=TH', '_top', []],
+                        ['การลงทุนใน - กองทุนรวม', '1205405', cURL + '/set/article.do?subtopicId=39&topicId=37&language=th&country=TH', '_top', []],
+                        ['การลงทุนใน - ETF', '1205406', cURL + '/set/article.do?subtopicId=40&topicId=37&language=th&country=TH', '_top', []],
+                        ['การลงทุนใน - ฟิวเจอร์ส', '1205407', cURL + '/set/article.do?subtopicId=41&topicId=37&language=th&country=TH', '_top', []],
+                        ['การลงทุนใน - ออปชัน', '1205408', cURL + '/set/article.do?subtopicId=42&topicId=37&language=th&country=TH', '_top', []],
+                        ['การลงทุนใน - สวอป', '1205409', cURL + '/set/article.do?subtopicId=43&topicId=37&language=th&country=TH', '_top', []],
+                        ['การลงทุนใน - ใบสำคัญแสดงสิทธิอนุพันธ์', '1205410', cURL + '/set/article.do?subtopicId=44&topicId=37&language=th&country=TH', '_top', []],
+                        ['การลงทุนใน - สินค้าเกษตรล่วงหน้า', '1205411', cURL + '/set/article.do?subtopicId=45&topicId=37&language=th&country=TH', '_top', []],
+                        ['การลงทุนใน - สินทรัพย์ทางเลือก', '1205412', cURL + '/set/article.do?subtopicId=46&topicId=37&language=th&country=TH', '_top', []],
+                        ['การบริหารพอร์ตการลงทุน', '1205413', cURL + '/set/article.do?subtopicId=47&topicId=47&language=th&country=TH', '_top', []],
+                        ['การบริหารความเสี่ยง', '1205414', cURL + '/set/article.do?subtopicId=48&topicId=48&language=th&country=TH', '_top', []],
+                        ['เส้นทางอาชีพ', '1205415', cURL + '/set/article.do?subtopicId=49&topicId=49&language=th&country=TH', '_top', []]
+                    ]],
+                    ['เอกสารเผยแพร่','1205005',cURL + '/education/th/online_classroom/document.html','_top', [
+                        ['การวางแผนการเงิน', '1205501', cURL + '/set/publicpaper.do?topicId=50&language=th&country=TH', '_top', []],
+                        ['การลงทุน', '1205502', cURL + '/set/publicpaper.do?topicId=51&language=th&country=TH', '_top', []],
+                        ['เอกสารประกอบหลักสูตรอบรมสัมมนา', '1205503', cURL + '/set/publicpaper.do?topicId=52&language=th&country=TH', '_top', []],
+                        ['เอกสารประกอบรายการห้องเรียนนักลงทุน Season 1', '1205504', cURL + '/set/publicpaper.do?topicId=53&language=th&country=TH', '_top', []],
+                        ['เอกสารประกอบรายการห้องเรียนนักลงทุน Season 2', '1205505', cURL + '/set/publicpaper.do?topicId=65&language=th&country=TH', '_top', []],
+                        ['ผู้ประกอบวิชาชีพ', '1205506', cURL + '/set/publicpaper.do?topicId=77&language=th&country=TH', '_top', []],
+                        ['เอกสารอื่นๆ', '1205507', cURL + '/set/publicpaper.do?topicId=78&language=th&country=TH', '_top', []]						
+                    ]],
+                    ['โปรแกรมคำนวณ','1205006',cURL+'/education/th/online_classroom/tool.html','_top', []],
+                    ['Infographic','1205007',cURL+'/set/infographic.do?language=th&country=TH','_top', []],
+                    ['คำศัพท์ลงทุน','1202008',cURL+'/education/th/begin/glossary.html','_top', []]
+				]];
+var topic_project = ['กิจกรรม/โครงการ ','1300000',cURL + '/education/th/project/project.html', '_top', [
+                    ['หน้าหลัก','1300001', cURL + '/education/th/project/project.html', '_top', []],
+                    ['Young Financial Star Competition (YFS)','1300002', cURL + '/yfs/index.html', '_blank', []],
+                    ['เศรษฐศาสตร์เพชรยอดมงกุฎฯ','1300003', cURL + '/phetecon/index.html', '_blank', []],
+                    ['New Breed','1300003', cURL + '/newbreed/index.html', '_blank', []],
+                    ['Young CFO','1300003', cURL + '/youngcfo/index.html', '_blank', []]
+				]];
+var topic_enterprise = ['ห้องเรียนผู้ประกอบการ ','1400000',cURL + '/enterprise/home.html', '_top', [
+                    ['หน้าหลัก','1400004', cURL + '/enterprise/home.html', '_top', []],
+					['ช่องทางการเรียนรู้','1400005',cURL + '/set/enterprise/article.do','_top', [
+                        ['บทความ', '1400005', cURL + '/set/enterprise/article.do', '_top', []],
+                        ['เอกสารเผยแพร่', '1400005', cURL + '/education/th/enterprise/classroom.html', '_top', []],
+                        ['e-Learning', '1400005', cURL + '/enterprise/onlineseminar.html', '_top', []],
+                        ['คลิปความรู้', '1400005', cURL + '/enterprise/clip.html', '_top', []],
+                        ['Infographic', '1400005', cURL + '/education/th/enterprise/classroom.html', '_top', []]						
+                    ]],
+                    ['อบรมสัมมนา','1400002', cURL + '/education/th/enterprise/seminar.html', '_top', []],
+                    ['ภาพกิจกรรม','1400003', cURL + '/education/th/enterprise/activities.html', '_top', []],
+					['เส้นทางการเติบโตทางธุรกิจ','1400006',cURL + '/enterprise/home.html','_top', [
+                        ['Pre Startup', '1400006', cURL + '/enterprise/home.html', '_top', []],
+                        ['Startup', '1400006', cURL + '/enterprise/home.html', '_top', []],
+                        ['Growth', '1400006', cURL + '/enterprise/home.html', '_top', []],
+                        ['High Growth', '1400006', cURL + '/enterprise/home.html', '_top', []]						
+                    ]]
+				]];				
+
+				
+// Sustainability
+var topic_sustainability = ['การพัฒนาความยั่งยืน','19000000',cURL+'/th/sustainability/sustainability.html','_top', [
+					['ความยั่งยืนของตลาดหลักทรัพย์แห่งประเทศไทย','19010000',cURL+'/th/sustainability/set/sse.html','_top', [
+                        ['กรอบการพัฒนาความยั่งยืน', '19010100', cURL + '/th/sustainability/set/framework.html', '_top', []],
+						['สรุปผลการดำเนินงานด้านความยั่งยืน', '19010200', cURL + '/th/sustainability/set/performance.html', '_top', []],
+                        ['รายงานความยั่งยืน', '19010300', cURL + '/th/about/annual/sd_report_p1.html', '_blank', []]
+                    ]],
+					['การพัฒนาความยั่งยืนของผู้มีส่วนได้เสีย','19020000',cURL+'/th/sustainability/stakeholder/listed.html','_top', [
+                        ['บริษัทจดทะเบียน', '19020100', cURL + '/th/sustainability/stakeholder/listed.html', '_top', [
+								['บรรษัทภิบาล', '19020101', cURL + '/th/sustainability/stakeholder/cg.html', '_top', []],
+								['ความรับผิดชอบต่อสังคม', '19020102', cURL + '/th/sustainability/stakeholder/sr.html', '_top', []],
+								['งานนักลงทุนสัมพันธ์', '19020103', cURL + '/th/sustainability/stakeholder/ir.html', '_top', []],
+								['การประเมินและรางวัลด้านความยั่งยืน', '19020104', cURL + '/th/sustainability/stakeholder/rating.html', '_top', []]
+							]],
+                        ['ผู้ลงทุน', '19020200', cURL + '/th/sustainability/stakeholder/investors/investor.html', '_top', []],
+                        ['สถาบันตัวกลาง', '19020300', cURL + '/th/sustainability/stakeholder/institution/institution.html', '_top', []]
+                    ]],
+					['มาตรฐานและแนวปฏิบัติด้านความยั่งยืน','19030000',cURL+'/th/sustainability/principle/principle_cg.html','_top', [
+                        ['ด้านบรรษัทภิบาล', '19030100', cURL + '/th/sustainability/principle/principle_cg.html', '_top', []],
+                        ['ด้านความรับผิดชอบต่อสังคม', '19030200', cURL + '/th/sustainability/principle/principle_sr.html', '_blank', []]
+                    ]],
+					['การจัดทำรายงานความยั่งยืน','19040000',cURL+'/th/sustainability/reporting/reporting.html','_top', []],
+					['แหล่งความรู้','19050000',cURL+'/th/sustainability/knowledge/seminar/seminar_p11.html','_top', []],
+					['กิจกรรม','19060000',cURL+'/th/sustainability/activities/activities_p1.html','_top', []]
+				]];
+
