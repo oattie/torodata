@@ -114,7 +114,7 @@ if __name__ == "__main__":
         read_historical_csv_update_data_folder("data1970to2018/")
         read_historical_csv_update_data_folder("data2019/")
         read_historical_csv_update_data_folder("Setsmart_csv/")
-        read_historical_csv_update_data_folder("set_or_th_csv/")
+        #read_historical_csv_update_data_folder("set_or_th_csv/")
     else:
         # Check if the file already has the data for today
         # Before writing!
