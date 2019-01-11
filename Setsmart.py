@@ -1,20 +1,20 @@
 # We need to export data from SetSmart
 # Open and save as TEXT tab file
 import datetime
-today = datetime.datetime.today().strftime('%Y%m%d')
-#today = "20190109"
+#today = datetime.datetime.today().strftime('%Y%m%d')
+today = "20190110"
 
 # THIS RUN WILL FIX IF CANNOT GET DATA ON SET, SETSMART IS DELAY FOR ONE DAY
 # SO WE WILL USE, SET_OR_TH.PY INSTEAD
 
 # Process write csv file
-today_file_format = "set-history_EOD_"+datetime.datetime.today().strftime('%Y-%m-%d')
-#today_file_format = "set-history_EOD_"+"2019-01-09"
+#today_file_format = "set-history_EOD_"+datetime.datetime.today().strftime('%Y-%m-%d')
+today_file_format = "set-history_EOD_"+"2019-01-10"
 myfile = "Setsmart_csv/"+today_file_format+".csv"
 f = open(myfile, "w")
 f.write('<TICKER>,<DTYYYYMMDD>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>\n')  
 
-def parse_csv(myfilename="setsmart_file/setsmart.txt"):
+def parse_csv(myfilename="Setsmart_file/20190110-setsmart.txt"):
     symbol_file = open(myfilename,"r")
     lines = [x.strip('\n') for x in symbol_file.readlines()]
     i = 0
